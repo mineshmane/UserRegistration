@@ -3,7 +3,9 @@ echo welcome to User registration
 
 read -p "Enter user first Name: " firstName
 read -p "Enter user last Name: " lastName
+read -p "Enter User email : " email
 namePattern="^[A-Z]+[a-zA-Z]{2,}$"
+emailPattern="^[a-zA-Z0-9][-._+a-zA-Z0-9]*[@]{1}[a-z0-9A-Z]*[.]{1}[a-z]{2,3}[.]{0,1}([a-z]{2,3}){0,1}$"
 
 function firstNameValidation(){
 
@@ -24,6 +26,14 @@ function lastNameValidation(){
 		echo "Invalid $lastName"
 	fi
 }
-
+function emailValidation(){
+	if [[ $email =~ $emailPattern ]]
+	then
+		echo "Email is Valid " $email
+	else
+		echo "Email inValid " $email
+	fi
+}
 firstNameValidation
 lastNameValidation
+emailValidation
