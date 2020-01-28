@@ -12,6 +12,7 @@ mobilePattern="^[0-9]{2}[[:space:]][0-9]{10}$"
 passwordPattern="^[a-zA-Z]{8}"
 passwordPattern1="([A-Z]+[a-z]*)+|([a-z]*[A-Z]+)+|([a-z]*[A-Z]+[a-z]*)+)"
 checkPassword="^(.*+[0-9]+.*[A-Z]+[a-zA-Z0-9])"
+validPassword="^(.*+[0-9]+.*[A-Z]+.*[\@#!%^&*()[].><|]+.*[a-zA-Z0-9])$"
 function firstNameValidation(){
 
 	if [[ $firstName =~ $namePattern ]]
@@ -48,7 +49,7 @@ function mobileNumberValidation(){
 	fi
 }
 function passwordValidation(){
-	if [[ $password =~ $checkPassword  ]] &&  [[ ${#password} -ge 8 ]]
+	if [[ $password =~ $validPassword  ]] &&  [[ ${#password} -ge 8 ]]
         then
                 echo "Valid $password"
         else
