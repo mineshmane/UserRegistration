@@ -4,8 +4,10 @@ echo welcome to User registration
 read -p "Enter user first Name: " firstName
 read -p "Enter user last Name: " lastName
 read -p "Enter User email : " email
+read -p "Enter user Mobile Number: " mobileNumber
 namePattern="^[A-Z]+[a-zA-Z]{2,}$"
 emailPattern="^[a-zA-Z0-9][-._+a-zA-Z0-9]*[@]{1}[a-z0-9A-Z]*[.]{1}[a-z]{2,3}[.]{0,1}([a-z]{2,3}){0,1}$"
+mobilePattern="^[0-9]{2}[[:space:]][0-9]{10}$"
 
 function firstNameValidation(){
 
@@ -34,6 +36,15 @@ function emailValidation(){
 		echo "Email inValid " $email
 	fi
 }
+function mobileNumberValidation(){
+	if [[ $mobileNumber =~ $mobilePattern ]]
+	then
+		echo "mobile Number is Valid " $mobileNumber
+	else
+		echo "invalid mobile Number " $mobileNumber
+	fi
+}
 firstNameValidation
 lastNameValidation
 emailValidation
+mobileNumberValidation
